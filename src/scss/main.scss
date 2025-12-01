@@ -1,0 +1,7 @@
+@use './base/elements';
+@use './base/reset';
+
+// Library style
+@import './libs/simplelightbox-custom';
+@import 'simplelightbox/src/simple-lightbox.scss';
+@import 'izitoast/dist/css/iziToast.min.css';
