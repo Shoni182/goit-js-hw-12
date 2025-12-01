@@ -1,0 +1,15 @@
+import{a as f,S as g,G as y,i as l}from"./assets/vendor-tnS95ulj.js";(function(){const s=document.createElement("link").relList;if(s&&s.supports&&s.supports("modulepreload"))return;for(const e of document.querySelectorAll('link[rel="modulepreload"]'))a(e);new MutationObserver(e=>{for(const t of e)if(t.type==="childList")for(const o of t.addedNodes)o.tagName==="LINK"&&o.rel==="modulepreload"&&a(o)}).observe(document,{childList:!0,subtree:!0});function i(e){const t={};return e.integrity&&(t.integrity=e.integrity),e.referrerPolicy&&(t.referrerPolicy=e.referrerPolicy),e.crossOrigin==="use-credentials"?t.credentials="include":e.crossOrigin==="anonymous"?t.credentials="omit":t.credentials="same-origin",t}function a(e){if(e.ep)return;e.ep=!0;const t=i(e);fetch(e.href,t)}})();const h=f.create({baseURL:"https://pixabay.com/api/",params:{key:"53374429-639c77152d70b3fe75f006246",q:"",image_type:"photo",orientation:"horizontal",safesearch:!0}});function L(r){return h.get("",{params:{q:r}}).then(s=>s.data.hits)}let v={galleryElem:document.querySelector(".gallery"),loader:document.querySelector(".loader")};const{galleryElem:p,loader:c}=v;function b({webformatURL:r,largeImageURL:s,tags:i,likes:a,views:e,comments:t,downloads:o}){let d=i.split(",").slice(0,3);return`
+  <li class="list-item">
+        <div class="item-container">
+        <a href="${s}" class="">
+          <img src="${r}" alt="${d}" class="item-img">
+          </a>
+          <div class="desc-container">
+            <p class="item-title">Likes <span class="item-number">${a}</span></p>
+            <p class="item-title">Views <span class="item-number">${e}</span></p>
+            <p class="item-title">Comments <span class="item-number">${t}</span></p>
+            <p class="item-title">Downloads <span class="item-number">${o}</span></p>
+          </div>
+        </div>
+      </li>`}const D=new g(".gallery a",{captionsData:"alt",captionPosition:"bottom",captionDelay:250,overlayOpacity:.85});function w(r){const s=r.map(b).join("");return p.innerHTML=s,D.refresh(),s}function m(){p.innerHTML=""}function O(){c.classList.contains("isActive")||c.classList.add("isActive")}function u(){c.classList.contains("isActive")&&c.classList.remove("isActive")}function E(){new y({element:"#granim-canvas",name:"granim",opacity:[1,1],states:{"default-state":{gradients:[["#834D9B","#D04ED6"],["#1CD8D2","#93EDC7"]]}}})}const S={form:document.querySelector(".form")},{form:n}=S;document.addEventListener("DOMContentLoaded",()=>{E()});n.addEventListener("submit",r=>{r.preventDefault();const i=new FormData(n).get("search-text").trim();if(i==="")return m(),n.reset(),l.show({messageSize:"20",message:"Будь ласка введіть назву фото!",position:"center",close:!0,closeOnEscape:!0,theme:"light",color:"yellow"});O(),m(),n.reset(),L(i).then(a=>{if(a.length===0)return u(),Promise.reject();console.log(i),w(a),u()}).catch(()=>{l.show({messageSize:"20",message:"На жаль, немає зображень, що відповідають вашому пошуковому запиту. Спробуйте ще раз!",position:"center",close:!0,closeOnEscape:!0,theme:"light",color:"orange"})})});
+//# sourceMappingURL=index.js.map
