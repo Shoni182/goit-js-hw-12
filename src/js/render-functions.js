@@ -49,12 +49,6 @@ const lightbox = new SimpleLightbox('.gallery a', {
 //: ф-я рендеру розмітки
 export function createGallery(images) {
   const markup = images.map(imageTemplate).join('');
-  // const lightbox = new SimpleLightbox('.gallery a', {
-  //   captionsData: 'alt',
-  //   captionPosition: 'bottom',
-  //   captionDelay: 250,
-  //   overlayOpacity: 0.85,
-  // });
   galleryElem.innerHTML = markup;
   lightbox.refresh();
   return markup;

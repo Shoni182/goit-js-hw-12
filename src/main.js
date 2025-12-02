@@ -48,13 +48,13 @@ form.addEventListener('submit', evt => {
   form.reset();
 
   //: Проміс
+  // ! async
   getImagesByQuery(query)
     .then(response => {
       if (response.length === 0) {
         hideLoader();
         return Promise.reject();
       }
-
       createGallery(response);
       hideLoader();
     })
@@ -70,3 +70,10 @@ form.addEventListener('submit', evt => {
       });
     });
 });
+
+// page	int	Returned search results are paginated. Use this parameter to select the page number.
+// Default: 1
+
+// per_page	int	Determine the number of results per page.
+// Accepted values: 3 - 200
+// Default: 20

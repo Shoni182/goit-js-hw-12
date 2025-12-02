@@ -12,7 +12,8 @@ const server = axios.create({
   },
 });
 
-//: ф-я HTTPS запиту
+//: ф-я HTTPS запит
+// ! async
 export function getImagesByQuery(query) {
   return server
     .get('', {
