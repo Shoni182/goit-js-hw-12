@@ -15,6 +15,7 @@
   flex-wrap: wrap;
   justify-content: center;
   gap: 24px;
+  margin-bottom: 20px;
 }
 
 .item-container {
@@ -117,6 +118,7 @@ input {
 
 //: input and button
 .btn {
+  display: block;
   margin: 0 auto;
   border: none;
   border-radius: 8px;
@@ -141,4 +143,9 @@ input {
     transform: scale(0.9);
     background: #4e75ff;
   }
+}
+
+.hidden {
+  display: none;
+  opacity: 0;
 }

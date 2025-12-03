@@ -13,13 +13,14 @@ const server = axios.create({
 });
 
 //: ф-я HTTPS запит
-// ! async
-export function getImagesByQuery(query) {
-  return server
-    .get('', {
-      params: {
-        q: query,
-      },
-    })
-    .then(res => res.data.hits);
+export async function getImagesByQuery(query, page) {
+  const res = await server.get('', {
+    params: {
+      q: query,
+      page: page,
+      per_page: 15,
+    },
+  });
+
+  return res.data;
 }

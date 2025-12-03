@@ -1,14 +1,14 @@
+//: підключення бібліотеки
 import SimpleLightbox from 'simplelightbox';
 import Granim from 'granim';
+
 //: пошук елементів DOM
 let refs = {
   galleryElem: document.querySelector('.gallery'),
   loader: document.querySelector('.loader'),
+  loadMoreBtn: document.querySelector('.js-btn-load'),
 };
-const { galleryElem, loader } = refs;
-
-//: змінна загрузки
-// let loader = null;
+const { galleryElem, loader, loadMoreBtn } = refs;
 
 //: ф-я темплеуйту розмітки
 function imageTemplate({
@@ -54,6 +54,13 @@ export function createGallery(images) {
   return markup;
 }
 
+export function addGallery(images) {
+  const markup = images.map(imageTemplate).join('');
+  galleryElem.insertAdjacentHTML('beforeend', markup);
+  lightbox.refresh();
+  return markup;
+}
+
 //: ф-я очистки галереї
 export function clearGallery() {
   galleryElem.innerHTML = '';
@@ -62,6 +69,7 @@ export function clearGallery() {
 //: ф-я запуску загрузки
 export function showLoader() {
   if (!loader.classList.contains('isActive')) {
+    // hideLoadBtn();
     loader.classList.add('isActive');
   }
 }
@@ -70,6 +78,25 @@ export function showLoader() {
 export function hideLoader() {
   if (loader.classList.contains('isActive')) {
     loader.classList.remove('isActive');
+  }
+}
+
+//: ф-я включення та виключення кнопки load more
+export function showLoadBtn() {
+  if (loadMoreBtn.classList.contains('hidden')) {
+    loadMoreBtn.classList.remove('hidden');
+    // console.log('✅ sucsessfuly REMOVE class hidden from load button');
+  } else {
+    console.log('⚠️ class hidden its alredy  REMOVED ');
+  }
+}
+
+export function hideLoadBtn() {
+  if (!loadMoreBtn.classList.contains('hidden')) {
+    loadMoreBtn.classList.add('hidden');
+    // console.log('✅ sucsessfuly ADDED class hidden from load button');
+  } else {
+    console.log('⚠️ class hidden its alredy  ADDED');
   }
 }
 
