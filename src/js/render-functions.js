@@ -85,7 +85,6 @@ export function hideLoader() {
 export function showLoadBtn() {
   if (loadMoreBtn.classList.contains('hidden')) {
     loadMoreBtn.classList.remove('hidden');
-    // console.log('✅ sucsessfuly REMOVE class hidden from load button');
   } else {
     console.log('⚠️ class hidden its alredy  REMOVED ');
   }
@@ -94,7 +93,6 @@ export function showLoadBtn() {
 export function hideLoadBtn() {
   if (!loadMoreBtn.classList.contains('hidden')) {
     loadMoreBtn.classList.add('hidden');
-    // console.log('✅ sucsessfuly ADDED class hidden from load button');
   } else {
     console.log('⚠️ class hidden its alredy  ADDED');
   }
